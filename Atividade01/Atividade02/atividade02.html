@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Cálculo do Peso Ideal</title>
+</head>
+<body>
+	<h1>Cálculo do Peso Ideal</h1>
+	<form action="#" method="post">
+		<label for="nome">Nome:</label>
+		<input type="text" name="nome" id="nome" required>
+		
+		<label for="sexo">Sexo:</label> <br>
+		<input type="radio" name="sexo" id="sexo-m" value="m" required>
+		<label for="sexo-m">Masculino</label> <br>
+		<input type="radio" name="sexo" id="sexo-f" value="f" required>
+		<label for="sexo-f">Feminino</label> <br>
+		
+		<label for="altura">Altura:</label>
+		<input type="number" name="altura" id="altura" min="1" step="0.01" required>
+		
+		<input type="submit" value="Calcular">
+	</form>
+	
+	<div class="result"></div>
+	<div class="error"></div>
+	
+	<script>
+		const form = document.querySelector('form');
+		const result = document.querySelector('.result');
+		const error = document.querySelector('.error');
+
+		form.addEventListener('submit'), function(e) {
+			e.preventDefault();
+    }
+			const nome = document.getElementById('nome').value.trim();
+			const sexo = document.querySelector('input[name="sexo"]:checked');
+			const altura = parseFloat(document.getElementById('altura').value);
+
+			if (!nome || !sexo) {
+				error.textContent = 'Por favor, preencha o nome e selecione o sexo.';
+				result.textContent = '';
+			} else if (!altura || isNaN(altura)) {
+				error.textContent = 'Por favor, preencha a altura corretamente.';
+				result.textContent = '';
+			} else {
+				error.textContent = '';
+      }
+				let pesoIdeal;
+				if (sexo.value === 'm') {
+					pesoIdeal = 22 * altura
+        }
